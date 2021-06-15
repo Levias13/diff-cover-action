@@ -1,0 +1,16 @@
+# action.yml
+name: 'diff-cover'
+description: 'Diff coverage is the percentage of new or modified lines that are covered by tests'
+inputs:
+  path:  # id of input
+    description: path of xml report'
+    required: true
+    default: 'target/jacoco-ut/jacoco.xml'
+outputs:
+  exit-code: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.path }}
